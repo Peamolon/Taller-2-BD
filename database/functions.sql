@@ -8,7 +8,7 @@ END
 $$
 LANGUAGE plpgsql
 
-CREATE FUNCTION set_new_product() RETURN TRIGGER
+CREATE FUNCTION set_new_product() RETURNS TRIGGER
 AS 
 $$
 BEGIN 
@@ -16,7 +16,7 @@ INSERT INTO marketplace.product_audit VALUES(default, new.name, new.price, new.b
 RETURN NEW;
 END 
 $$
-LANGUAGE plpgsql
+
 
 
 
