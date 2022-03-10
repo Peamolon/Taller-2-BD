@@ -4,6 +4,9 @@ CREATE TABLE marketplace.product_audit(
     price DECIMAL(10,2) NOT NULL,
     brand VARCHAR(255) NOT NULL,
     product_category VARCHAR(255) NOT NULL,
+	event_type VARCHAR(50) NOT NULL,
+	size VARCHAR(255) NOT NULL,
+    color VARCHAR(255) NOT NULL,
     created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
