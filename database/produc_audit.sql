@@ -11,5 +11,3 @@ CREATE TABLE marketplace.product_audit(
     updated_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-
-

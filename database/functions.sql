@@ -1,3 +1,4 @@
+/*-------PUNTO 1-------*/
 CREATE OR REPLACE FUNCTION set_product() RETURNS TRIGGER 
 AS
 $$
@@ -21,3 +22,22 @@ RETURN NEW;
 END 
 $$
 LANGUAGE plpgsql
+
+
+/*------PUNTO 2-----*/
+CREATE OR REPLACE FUNCTION validate_order() RETURNS TRIGGER
+AS
+$$
+BEGIN
+    print("Hola mundo")
+    RETURN NEW;
+END
+$$
+LANGUAGE 'plpython3u'
+
+
+CREATE TRIGGER trigger_update BEFORE INSERT ON marketplace.order
+FOR EACH ROW 
+EXECUTE PROCEDURE validate_order();
+
+
