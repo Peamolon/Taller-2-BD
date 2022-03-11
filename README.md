@@ -12,3 +12,9 @@
 - David Leonardo, Lopez Forero
 
 # Informacion importante
+
+Al evaluar cada requerimiento establecido en el [Workshop 2](https://docs.google.com/document/d/1DEzcg8UQbD64AQuQdZiZAWsApqEQ2kb9t3dzFQSpjjM/edit), realizamos el siguiente procedimeinto para poder correr cada script
+
+1. Se debe crear las tablas --> archivo: tables.sql
+2. Seguidamente se deben ejecutar las funciones --> archivo: funtions.sql
+3. Una vez corrido cada script mencionado anteriormente, se corren los triggers --> archivo: triggers.sql
