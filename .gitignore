@@ -1,0 +1,4 @@
+#ignorar archivos de mac
+
+.DS_Store
+
