@@ -31,11 +31,13 @@ $$
 DECLARE 
 	shopping_car_id integer;
 BEGIN
-	SELECT id INTO shopping_card_id  from marketplace.order where shopping_card_id = new.id;
+	SELECT id INTO shopping_car_id  from marketplace.order where shopping_card_id = new.id;
 
-	IF shopping_card_id IS NOT NULL THEN
-		RAISE EXCEPTION 'Ya existe una orden sobre el shopping_card_id %', shopping_card_id;
+	IF shopping_car_id IS NOT NULL THEN
+		RAISE EXCEPTION 'Ya existe una orden sobre el shopping_car_id %', shopping_car_id;
 	END IF;
+
+	RETURN NEW;
 END
 $$
 LANGUAGE plpgsql
