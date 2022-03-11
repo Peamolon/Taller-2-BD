@@ -16,6 +16,9 @@ INSERT INTO marketplace.product_audit VALUES(default, new.name, new.price, new.b
 RETURN NEW;
 END 
 $$
+LANGUAGE plpgsql
+
+
 
 
 
