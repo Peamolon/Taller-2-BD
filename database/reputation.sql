@@ -15,25 +15,11 @@ AS
 $$
 BEGIN
 
-    /* seleccionar las reputaciones del ultimo mes corrido y guardar query en una variable*/
     CREATE TEMP TABLE reputaciones_mes_corrido AS
     SELECT id_suplier, rating, reputacion, created_on
     FROM marketplace.reputation_suplier
     WHERE created_on >= (CURRENT_DATE - INTERVAL '1 month');
 
-
-
-
-
-
-    /* Update the reputation of the suplier
-        si rating <= 5 ---> reputacion = 'baja'
-        si rating > 5 && rating <= 10 ---> reputacion = 'baja-media'
-        si rating > 10 && rating <= 15 ---> reputacion = 'media'
-        si rating > 15 && rating <= 20 ---> reputacion = 'media-alta'
-        si rating > 20 ---> reputacion = 'alta'
-    */
-|
     UPDATE TEMP TABLE reputaciones_mes_corrido
     SET reputacion = CASE
         WHEN rating <= 5 THEN 'baja'

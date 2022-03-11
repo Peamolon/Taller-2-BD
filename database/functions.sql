@@ -28,12 +28,17 @@ LANGUAGE plpgsql
 CREATE OR REPLACE FUNCTION validate_order() RETURNS TRIGGER
 AS
 $$
+DECLARE 
+	shopping_car_id integer;
 BEGIN
-    print("Hola mundo")
-    RETURN NEW;
+	SELECT id INTO shopping_card_id  from marketplace.order where shopping_card_id = new.id;
+
+	IF shopping_card_id IS NOT NULL THEN
+		RAISE EXCEPTION 'Ya existe una orden sobre el shopping_card_id %', shopping_card_id;
+	END IF;
 END
 $$
-LANGUAGE 'plpython3u'
+LANGUAGE plpgsql
 
 
 CREATE TRIGGER trigger_update BEFORE INSERT ON marketplace.order
