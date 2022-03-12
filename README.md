@@ -18,3 +18,5 @@ Al evaluar cada requerimiento establecido en el [Workshop 2](https://docs.google
 1. Se debe crear las tablas --> archivo: tables.sql
 2. Seguidamente se deben ejecutar las funciones --> archivo: funtions.sql
 3. Una vez corrido cada script mencionado anteriormente, se corren los triggers --> archivo: triggers.sql
+
+Video https://youtu.be/ZfggsEDV-Q4
