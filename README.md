@@ -19,4 +19,4 @@ Al evaluar cada requerimiento establecido en el [Workshop 2](https://docs.google
 2. Seguidamente se deben ejecutar las funciones --> archivo: funtions.sql
 3. Una vez corrido cada script mencionado anteriormente, se corren los triggers --> archivo: triggers.sql
 
-Video https://youtu.be/ZfggsEDV-Q4
+Video sustentación https://youtu.be/FVV1qCrW9hw
