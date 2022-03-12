@@ -27,20 +27,34 @@ CREATE OR REPLACE FUNCTION validate_order() RETURNS TRIGGER
 AS
 $$
 DECLARE 
-	shopping_car_id integer;
+	shopping_car integer;
 BEGIN
-	SELECT id INTO shopping_card_id  from marketplace.order where shopping_card_id = new.id;
-
-	IF shopping_card_id IS NOT NULL THEN
-		RAISE EXCEPTION 'Ya existe una orden sobre el shopping_card_id %', shopping_card_id;
+	SELECT id INTO shopping_car from marketplace.order where marketplace.order.shopping_card_id = new.shopping_card_id;
+	IF shopping_car IS NOT NULL THEN
+		RAISE EXCEPTION 'Ya existe una orden sobre el shopping_card_id %', shopping_car;
 	END IF;
 END
 $$
 LANGUAGE plpgsql
 
+/*------PUNTO 3-----*/
+CREATE FUNCTION marketplace.calculate_reputation() RETURNS TRIGGER
+AS 
+$$
+BEGIN
 
-CREATE TRIGGER trigger_update BEFORE INSERT ON marketplace.order
-FOR EACH ROW 
-EXECUTE PROCEDURE validate_order();
+    CREATE TEMP TABLE reputaciones_mes_corrido AS
+    SELECT id_suplier, rating, reputacion, created_on
+    FROM marketplace.reputation_suplier
+    WHERE created_on >= (CURRENT_DATE - INTERVAL '1 month');
+
+    UPDATE TEMP TABLE reputaciones_mes_corrido
+    SET reputacion = CASE
+        WHEN rating <= 5 THEN 'baja'
+        WHEN rating > 5 AND rating <= 10 THEN 'baja-media'
+        WHEN rating > 10 AND rating <= 15 THEN 'media'
+        WHEN rating > 15 AND rating <= 20 THEN 'media-alta'
+        WHEN rating > 20 THEN 'alta'
+END 
 
 
